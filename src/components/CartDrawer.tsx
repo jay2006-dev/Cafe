@@ -1,12 +1,23 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Minus, Plus, ShoppingBag } from "lucide-react";
+import { X, Minus, Plus, ShoppingBag, Trash2, CheckCircle2 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function CartDrawer() {
-  const { cart, isCartOpen, setIsCartOpen, updateQuantity, removeFromCart, cartTotal } = useCart();
+  const { cart, isCartOpen, setIsCartOpen, updateQuantity, removeFromCart, cartTotal, clearCart } = useCart();
+  const [isCheckoutSuccess, setIsCheckoutSuccess] = useState(false);
+
+  const handleCheckout = () => {
+    setIsCheckoutSuccess(true);
+    setTimeout(() => {
+      clearCart();
+      setIsCheckoutSuccess(false);
+      setIsCartOpen(false);
+    }, 3000);
+  };
 
   return (
     <AnimatePresence>
@@ -16,7 +27,10 @@ export default function CartDrawer() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setIsCartOpen(false)}
+            onClick={() => {
+              setIsCartOpen(false);
+              setIsCheckoutSuccess(false);
+            }}
             className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60]"
           />
           <motion.div
@@ -32,7 +46,10 @@ export default function CartDrawer() {
                 Your Cart
               </h2>
               <button
-                onClick={() => setIsCartOpen(false)}
+                onClick={() => {
+                  setIsCartOpen(false);
+                  setIsCheckoutSuccess(false);
+                }}
                 className="text-coffee-600 hover:text-coffee-950 transition-colors"
               >
                 <X size={24} />
@@ -40,7 +57,19 @@ export default function CartDrawer() {
             </div>
 
             <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-6">
-              {cart.length === 0 ? (
+              {isCheckoutSuccess ? (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex-1 flex flex-col items-center justify-center text-center gap-4"
+                >
+                  <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
+                    <CheckCircle2 size={48} />
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-coffee-950">Order Successful!</h3>
+                  <p className="text-coffee-600">Your coffee is being prepared with care. Check your email for the receipt.</p>
+                </motion.div>
+              ) : cart.length === 0 ? (
                 <div className="flex-1 flex flex-col items-center justify-center text-center text-coffee-500 gap-4">
                   <ShoppingBag size={48} className="opacity-20" />
                   <p>Your cart is empty</p>
@@ -77,14 +106,15 @@ export default function CartDrawer() {
                       </div>
                     </div>
                     <div className="text-right flex flex-col items-end gap-2">
-                      <span className="font-bold text-coffee-950">
+                      <span className="font-bold text-coffee-950 text-sm">
                         ₹{(parseFloat(item.price.replace(/[^0-9.]/g, '')) * item.quantity).toFixed(0)}
                       </span>
                       <button
                         onClick={() => removeFromCart(item.id)}
-                        className="text-xs text-red-500 hover:underline"
+                        className="text-red-400 hover:text-red-600 transition-colors p-1"
+                        title="Remove item"
                       >
-                        Remove
+                        <Trash2 size={18} />
                       </button>
                     </div>
                   </div>
@@ -92,14 +122,17 @@ export default function CartDrawer() {
               )}
             </div>
 
-            {cart.length > 0 && (
+            {cart.length > 0 && !isCheckoutSuccess && (
               <div className="p-6 border-t border-coffee-100 bg-coffee-50/50">
                 <div className="flex items-center justify-between mb-4">
                   <span className="font-medium text-coffee-800">Subtotal</span>
                   <span className="font-bold text-xl text-coffee-950">₹{cartTotal.toFixed(0)}</span>
                 </div>
                 <p className="text-xs text-coffee-500 mb-6 text-center">Taxes and shipping calculated at checkout</p>
-                <button className="w-full bg-coffee-950 hover:bg-coffee-800 text-white py-4 rounded-full font-medium transition-colors">
+                <button 
+                  onClick={handleCheckout}
+                  className="w-full bg-coffee-950 hover:bg-coffee-800 text-white py-4 rounded-full font-medium transition-colors"
+                >
                   Checkout
                 </button>
               </div>

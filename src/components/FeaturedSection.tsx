@@ -8,29 +8,29 @@ const products = [
     id: 1,
     title: "Caramel Macchiato",
     description: "Espresso combined with vanilla-flavored syrup, milk and caramel drizzle.",
-    price: "$5.50",
+    price: "₹280",
     image: "/images/coffee1.png",
   },
   {
     id: 2,
     title: "Iced Americano",
     description: "Espresso shots topped with cold water produce a light layer of crema.",
-    price: "$4.00",
+    price: "₹190",
     image: "/images/hero.png",
   },
   {
     id: 3,
     title: "Mocha Frappuccino",
     description: "Roast coffee, milk and ice all come together for a delicious chocolatey flavor.",
-    price: "$6.00",
-    image: "/images/coffee1.png", // reusing for demo
+    price: "₹320",
+    image: "/images/coffee1.png",
   },
   {
     id: 4,
     title: "Flat White",
     description: "Smooth ristretto shots of espresso get the perfect amount of steamed whole milk.",
-    price: "$4.50",
-    image: "/images/hero.png", // reusing for demo
+    price: "₹240",
+    image: "/images/hero.png",
   },
 ];
 
