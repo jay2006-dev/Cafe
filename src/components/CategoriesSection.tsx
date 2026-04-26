@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Coffee, CupSoda, Croissant, Sparkles } from "lucide-react";
+import { Coffee, IceCream, Cookie, Sparkles } from "lucide-react";
 
 export default function CategoriesSection() {
   const categories = [
@@ -14,8 +14,8 @@ export default function CategoriesSection() {
       description: "Steaming artisanal blends"
     },
     {
-      name: "Cold Coffee",
-      icon: <CupSoda size={28} />,
+      name: "Cold Brew",
+      icon: <IceCream size={28} />,
       items: "18 Items",
       color: "bg-blue-50",
       iconColor: "text-blue-600",
@@ -23,7 +23,7 @@ export default function CategoriesSection() {
     },
     {
       name: "Desserts",
-      icon: <Croissant size={28} />,
+      icon: <Cookie size={28} />,
       items: "32 Items",
       color: "bg-amber-50",
       iconColor: "text-amber-600",
@@ -32,14 +32,14 @@ export default function CategoriesSection() {
   ];
 
   return (
-    <section className="relative z-20 px-6 -mt-16 mb-16">
+    <section className="relative z-20 px-6 py-20 bg-coffee-50/50">
       <div className="max-w-6xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="bg-white/80 backdrop-blur-xl border border-white/20 rounded-[3rem] p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.1)] flex flex-col md:flex-row items-center justify-between gap-12"
+          className="bg-white rounded-[3rem] p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-coffee-100 flex flex-col md:flex-row items-center justify-between gap-12"
         >
           <div className="flex flex-col gap-2 max-w-xs text-center md:text-left">
             <div className="flex items-center gap-2 text-coffee-600 justify-center md:justify-start">
