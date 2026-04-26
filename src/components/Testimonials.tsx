@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
+import { useState } from "react";
 
 const testimonials = [
   {
@@ -80,6 +81,8 @@ const testimonials = [
 const duplicatedTestimonials = [...testimonials, ...testimonials];
 
 export default function Testimonials() {
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
     <section className="py-24 overflow-hidden bg-coffee-50" id="about">
       <div className="max-w-7xl mx-auto px-6 text-center mb-16">
@@ -99,14 +102,18 @@ export default function Testimonials() {
       </div>
 
       {/* Infinite Scroll Container */}
-      <div className="relative flex overflow-x-hidden group">
+      <div 
+        className="relative flex overflow-x-hidden group"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         <motion.div
           className="flex whitespace-nowrap"
           animate={{
             x: ["0%", "-50%"],
           }}
           transition={{
-            duration: 30,
+            duration: isPaused ? 60 : 30, // Slow down when paused/hovered
             ease: "linear",
             repeat: Infinity,
           }}

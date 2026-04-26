@@ -21,10 +21,10 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Coffee", href: "#coffee" },
-    { name: "Bakery", href: "#bakery" },
-    { name: "Shop", href: "#shop" },
-    { name: "About", href: "#about" },
+    { name: "Menu", href: "/menu" },
+    { name: "Coffee", href: "/#coffee" },
+    { name: "Bakery", href: "/#bakery" },
+    { name: "About", href: "/#about" },
   ];
 
   return (
