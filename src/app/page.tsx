@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import CategoriesSection from "@/components/CategoriesSection";
 import FeaturedSection from "@/components/FeaturedSection";
 import DessertSection from "@/components/DessertSection";
+import ExploreSection from "@/components/ExploreSection";
 import Banner from "@/components/Banner";
 import Testimonials from "@/components/Testimonials";
 import Newsletter from "@/components/Newsletter";
@@ -17,6 +18,7 @@ export default function Home() {
       <FeaturedSection />
       <Banner />
       <DessertSection />
+      <ExploreSection />
       <Testimonials />
       <Newsletter />
       <Footer />
