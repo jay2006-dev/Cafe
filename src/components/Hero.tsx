@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -32,10 +33,12 @@ export default function Hero() {
           </p>
 
           <div className="flex items-center gap-4 pt-4">
-            <button className="bg-coffee-800 hover:bg-coffee-900 text-white px-8 py-4 rounded-full font-medium transition-all transform hover:-translate-y-1 hover:shadow-lg flex items-center gap-2">
-              Explore Menu
-              <ArrowRight size={18} />
-            </button>
+            <Link href="/menu">
+              <button className="bg-coffee-800 hover:bg-coffee-900 text-white px-8 py-4 rounded-full font-medium transition-all transform hover:-translate-y-1 hover:shadow-lg flex items-center gap-2">
+                Explore Menu
+                <ArrowRight size={18} />
+              </button>
+            </Link>
             <button className="px-8 py-4 rounded-full font-medium text-coffee-800 hover:bg-coffee-200/50 transition-colors">
               Book a Table
             </button>

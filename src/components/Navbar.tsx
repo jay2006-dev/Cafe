@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Search, ShoppingBag, Menu, X, Coffee } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { cartCount, setIsCartOpen } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,11 +64,16 @@ export default function Navbar() {
           <button className="hover:text-coffee-600 transition-colors">
             <Search size={20} />
           </button>
-          <button className="hover:text-coffee-600 transition-colors relative">
+          <button 
+            onClick={() => setIsCartOpen(true)}
+            className="hover:text-coffee-600 transition-colors relative"
+          >
             <ShoppingBag size={20} />
-            <span className="absolute -top-1.5 -right-1.5 bg-coffee-800 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
-              2
-            </span>
+            {cartCount > 0 && (
+              <span className="absolute -top-1.5 -right-1.5 bg-coffee-800 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
+                {cartCount}
+              </span>
+            )}
           </button>
         </div>
 

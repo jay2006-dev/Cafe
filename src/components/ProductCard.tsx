@@ -1,16 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import { Plus } from "lucide-react";
+import { Plus, Check } from "lucide-react";
+import { useState } from "react";
+import { useCart } from "@/context/CartContext";
 
 interface ProductCardProps {
+  id?: string | number;
   title: string;
   description: string;
   price: string;
   image: string;
 }
 
-export default function ProductCard({ title, description, price, image }: ProductCardProps) {
+export default function ProductCard({ id, title, description, price, image }: ProductCardProps) {
+  const { addToCart } = useCart();
+  const [added, setAdded] = useState(false);
+
+  const handleAdd = () => {
+    addToCart({ id: String(id || title), title, price, image });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
+  };
+
   return (
     <div className="group bg-white rounded-[2rem] p-4 flex flex-col gap-4 shadow-sm hover:shadow-xl transition-all duration-300">
       <div className="relative w-full aspect-square rounded-[1.5rem] overflow-hidden bg-coffee-50">
@@ -31,8 +43,11 @@ export default function ProductCard({ title, description, price, image }: Produc
         </p>
         <div className="flex items-center justify-between">
           <span className="font-bold text-xl text-coffee-800">{price}</span>
-          <button className="bg-coffee-100 hover:bg-coffee-800 text-coffee-800 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-            <Plus size={20} />
+          <button 
+            onClick={handleAdd}
+            className={`${added ? 'bg-green-600 text-white' : 'bg-coffee-100 text-coffee-800 hover:bg-coffee-800 hover:text-white'} w-10 h-10 rounded-full flex items-center justify-center transition-all`}
+          >
+            {added ? <Check size={20} /> : <Plus size={20} />}
           </button>
         </div>
       </div>
