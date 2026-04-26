@@ -1,85 +1,91 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Coffee, IceCream, Cookie, Sparkles } from "lucide-react";
+import { IconCup, IconIceCream, IconCake, IconCoffee, IconSparkles } from "@tabler/icons-react";
 
 export default function CategoriesSection() {
   const categories = [
     {
-      name: "Hot Coffee",
-      icon: <Coffee size={28} />,
+      name: "Hot Brews",
+      icon: <IconCoffee size={32} stroke={1.5} />,
       items: "24 Items",
       color: "bg-orange-50",
-      iconColor: "text-orange-600",
-      description: "Steaming artisanal blends"
+      iconColor: "text-orange-700",
+      description: "Artisanal espresso blends"
     },
     {
-      name: "Cold Brew",
-      icon: <IceCream size={28} />,
+      name: "Cold Brews",
+      icon: <IconCup size={32} stroke={1.5} />,
       items: "18 Items",
       color: "bg-blue-50",
-      iconColor: "text-blue-600",
-      description: "Refreshing iced favorites"
+      iconColor: "text-blue-700",
+      description: "Slow-steeped perfection"
     },
     {
-      name: "Desserts",
-      icon: <Cookie size={28} />,
+      name: "Pastries",
+      icon: <IconCake size={32} stroke={1.5} />,
       items: "32 Items",
       color: "bg-amber-50",
-      iconColor: "text-amber-600",
+      iconColor: "text-amber-700",
       description: "Freshly baked delights"
     },
   ];
 
   return (
-    <section className="relative z-20 px-6 py-20 bg-coffee-50/50">
-      <div className="max-w-6xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="bg-white rounded-[3rem] p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-coffee-100 flex flex-col md:flex-row items-center justify-between gap-12"
-        >
-          <div className="flex flex-col gap-2 max-w-xs text-center md:text-left">
-            <div className="flex items-center gap-2 text-coffee-600 justify-center md:justify-start">
-              <Sparkles size={16} />
-              <span className="text-xs font-bold uppercase tracking-[0.2em]">Our Craft</span>
+    <section className="py-32 bg-white relative">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-16">
+          {/* Header Section */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="max-w-sm text-center md:text-left"
+          >
+            <div className="flex items-center gap-2 text-coffee-600 mb-4 justify-center md:justify-start">
+              <IconSparkles size={20} stroke={1.5} />
+              <span className="text-sm font-bold uppercase tracking-[0.3em]">Our Selection</span>
             </div>
-            <h2 className="font-serif text-3xl font-bold text-coffee-950">Expertly Curated</h2>
-            <p className="text-coffee-600 text-sm">Discover the perfect balance of flavor and artistry in every category.</p>
-          </div>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-coffee-950 mb-6">
+              Expertly Curated <br />
+              <span className="text-coffee-600">Categories</span>
+            </h2>
+            <p className="text-coffee-700 leading-relaxed">
+              Explore our range of premium offerings, from bold dark roasts to delicate hand-crafted pastries.
+            </p>
+          </motion.div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-8 md:gap-12 w-full md:w-auto">
+          {/* Categories Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full md:w-auto flex-1 max-w-3xl">
             {categories.map((category, index) => (
               <motion.div
                 key={category.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="flex flex-col items-center text-center group cursor-pointer"
+                className="group relative"
               >
-                <div
-                  className={`w-20 h-20 rounded-[2rem] flex items-center justify-center transition-all duration-500 group-hover:shadow-lg group-hover:shadow-coffee-200/50 ${category.color} ${category.iconColor} mb-4 relative overflow-hidden`}
-                >
-                  <div className="absolute inset-0 bg-white/0 group-hover:bg-white/20 transition-colors" />
-                  <motion.div
-                    whileHover={{ rotate: [0, -10, 10, 0] }}
-                    transition={{ duration: 0.5 }}
+                <div className="bg-coffee-50/50 border border-coffee-100 rounded-[2.5rem] p-8 flex flex-col items-center text-center transition-all duration-500 hover:bg-white hover:shadow-[0_20px_50px_rgba(62,39,35,0.1)] hover:-translate-y-2 h-full">
+                  <div
+                    className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 ${category.color} ${category.iconColor}`}
                   >
                     {category.icon}
-                  </motion.div>
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-coffee-950 mb-2">
+                    {category.name}
+                  </h3>
+                  <p className="text-xs text-coffee-500 font-bold uppercase tracking-widest mb-3">
+                    {category.items}
+                  </p>
+                  <p className="text-sm text-coffee-600 leading-snug opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    {category.description}
+                  </p>
                 </div>
-                <h3 className="font-serif text-xl font-bold text-coffee-950 mb-1">
-                  {category.name}
-                </h3>
-                <p className="text-coffee-500 text-xs font-medium uppercase tracking-wider">{category.items}</p>
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
