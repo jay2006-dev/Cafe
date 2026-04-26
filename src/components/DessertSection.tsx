@@ -16,21 +16,21 @@ const desserts = [
     title: "Classic Butter Croissant",
     description: "Flaky, buttery pastry baked fresh every morning.",
     price: "$3.50",
-    image: "/images/dessert1.png", // reusing for demo
+    image: "/images/croissant.png",
   },
   {
     id: 3,
     title: "Blueberry Muffin",
     description: "Soft and moist muffin loaded with juicy blueberries.",
     price: "$4.00",
-    image: "/images/dessert1.png", // reusing for demo
+    image: "/images/blueberry_muffin.png",
   },
   {
     id: 4,
     title: "Lemon Tart",
     description: "Tangy lemon curd in a sweet, buttery pastry shell.",
     price: "$5.00",
-    image: "/images/dessert1.png", // reusing for demo
+    image: "/images/lemon_tart.png",
   },
 ];
 
