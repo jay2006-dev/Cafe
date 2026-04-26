@@ -26,16 +26,14 @@ export default function ProductCard({ id, title, description, price, image }: Pr
 
   return (
     <div className="group bg-white rounded-[2rem] p-4 flex flex-col gap-4 shadow-sm hover:shadow-xl transition-all duration-300">
-      <Link href={`/menu/${id}`} className="relative w-full flex justify-center">
-        <div className="relative w-[30%] aspect-square rounded-[1rem] overflow-hidden bg-coffee-50 cursor-pointer">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
-            sizes="(max-width: 768px) 30vw, 10vw"
-          />
-        </div>
+      <Link href={`/menu/${id}`} className="relative w-full aspect-square rounded-[1.5rem] overflow-hidden bg-coffee-50 cursor-pointer">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
       </Link>
       <div className="px-2 pb-2">
         <Link href={`/menu/${id}`}>

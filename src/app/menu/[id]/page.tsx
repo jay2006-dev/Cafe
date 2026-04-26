@@ -49,16 +49,18 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl bg-white p-4"
+            className="flex justify-center"
           >
-            <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden">
-              <Image 
-                src={item.image} 
-                alt={item.title} 
-                fill 
-                className="object-cover"
-                priority
-              />
+            <div className="relative w-[60%] lg:w-[80%] aspect-square rounded-[3rem] overflow-hidden shadow-2xl bg-white p-4">
+              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden">
+                <Image 
+                  src={item.image} 
+                  alt={item.title} 
+                  fill 
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
           </motion.div>
 
