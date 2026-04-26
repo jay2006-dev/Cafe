@@ -4,30 +4,30 @@ import { motion } from "framer-motion";
 import ProductCard from "./ProductCard";
 
 const exploreItems = [
-  { id: 1, title: "Espresso", description: "Rich, bold, and pure artisanal coffee shot.", price: "$3.00", image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 2, title: "Cappuccino", description: "Perfect balance of espresso, steamed milk, and foam.", price: "$4.50", image: "https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 3, title: "Vanilla Latte", description: "Smooth espresso with velvet milk and sweet vanilla.", price: "$5.00", image: "https://images.unsplash.com/photo-1595434066389-01303473998d?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 4, title: "Caramel Macchiato", description: "Freshly steamed milk with vanilla-flavored syrup marked with espresso.", price: "$5.50", image: "https://images.unsplash.com/photo-1485808191679-5f6333f37cca?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 5, title: "Mocha", description: "Espresso with chocolate and steamed milk.", price: "$5.25", image: "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 6, title: "Americano", description: "Espresso shots topped with hot water.", price: "$3.50", image: "https://images.unsplash.com/photo-1551033594-526279f0407a?q=80&w=400&h=400&auto=format&fit=crop" },
+  { id: 1, title: "Espresso", description: "Rich, bold, and pure artisanal coffee shot.", price: "₹180", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbzGFS1G1NK2qzcjmJNPpLxrCEQ2_9Cvq2Fg&s" },
+  { id: 2, title: "Cappuccino", description: "Perfect balance of espresso, steamed milk, and foam.", price: "₹220", image: "https://www.livingnorth.com/images/media/articles/food-and-drink/eat-and-drink/coffee.png?fm=pjpg&w=1000&q=95" },
+  { id: 3, title: "Vanilla Latte", description: "Smooth espresso with velvet milk and sweet vanilla.", price: "₹250", image: "https://cdn.uengage.io/uploads/28289/image-205MK3-1773981747.png" },
+  { id: 4, title: "Caramel Macchiato", description: "Freshly steamed milk with vanilla-flavored syrup marked with espresso.", price: "₹280", image: "https://www.figjar.com/wp-content/uploads/2025/12/iced-caramel-macchiato.jpg" },
+  { id: 5, title: "Mocha", description: "Espresso with chocolate and steamed milk.", price: "₹260", image: "https://www.spoonfulofflavor.com/wp-content/uploads/2021/11/mocha-latte-recipe.jpg" },
+  { id: 6, title: "Americano", description: "Espresso shots topped with hot water.", price: "₹190", image: "https://assets.beanbox.com/blog_images/AB7ud4YSE6nmOX0iGlgA.jpeg" },
 
-  { id: 7, title: "Strawberry Cake", description: "Rich chocolate layers with fresh strawberries.", price: "$6.50", image: "https://images.unsplash.com/photo-1464349172904-124bb54af6b0?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 8, title: "Butter Croissant", description: "Flaky, buttery pastry baked fresh daily.", price: "$3.50", image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 9, title: "Blueberry Muffin", description: "Moist muffin bursting with fresh blueberries.", price: "$4.00", image: "https://images.unsplash.com/photo-1607958996333-41aef7caadaa?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 10, title: "Lemon Tart", description: "Tangy lemon curd in a sweet pastry shell.", price: "$5.00", image: "https://images.unsplash.com/photo-1519915028121-7d3463d20b13?q=80&w=400&h=400&auto=format&fit=crop" },
+  { id: 7, title: "Strawberry Cake", description: "Rich chocolate layers with fresh strawberries.", price: "₹350", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQX6HC4Lh0J7wMNL1jIhX8HMpDFfdaFJwTbw&s" },
+  { id: 8, title: "Butter Croissant", description: "Flaky, buttery pastry baked fresh daily.", price: "₹150", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSepDi7X-4hdi-qjBadbKiXuj-fllU2lxnJAA&s" },
+  { id: 9, title: "Blueberry Muffin", description: "Moist muffin bursting with fresh blueberries.", price: "₹180", image: "https://thefirstyearblog.com/wp-content/uploads/2026/01/Healthy-Blueberry-Muffins-Square-2026.png" },
+  { id: 10, title: "Lemon Tart", description: "Tangy lemon curd in a sweet pastry shell.", price: "₹220", image: "https://www.oetker.ca/assets/recipes/assets/232ec0777fce4425a0cbb4401558dd79/1272x764/lemon-tarte-11.webp" },
 
-  { id: 11, title: "Flat White", description: "Micro-foam poured over a double shot of espresso.", price: "$4.75", image: "https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 12, title: "Iced Coffee", description: "Slow-steeped cold brew served over ice.", price: "$4.00", image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=400&h=400&auto=format&fit=crop" },
+  { id: 11, title: "Flat White", description: "Micro-foam poured over a double shot of espresso.", price: "₹240", image: "https://static.toiimg.com/thumb/86699095.cms?imgsize=59654&width=800&height=800" },
+  { id: 12, title: "Iced Coffee", description: "Slow-steeped cold brew served over ice.", price: "₹200", image: "https://frostingandfettuccine.com/wp-content/uploads/2022/12/Caramel-Iced-Coffee-6.jpg" },
 
-  { id: 13, title: "Chocolate Brownie", description: "Dense, fudgy brownie with walnuts.", price: "$3.75", image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 14, title: "Pain au Chocolat", description: "Buttery pastry with dark chocolate core.", price: "$4.00", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 15, title: "Matcha Latte", description: "Premium grade matcha with creamy milk.", price: "$5.50", image: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 16, title: "Cold Brew", description: "12-hour steeped coffee for ultimate smoothness.", price: "$4.50", image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=400&h=400&auto=format&fit=crop" },
+  { id: 13, title: "Chocolate Brownie", description: "Dense, fudgy brownie with walnuts.", price: "₹180", image: "https://icecreambakery.in/wp-content/uploads/2024/12/Brownie-Recipe-with-Cocoa-Powder-1200x821.jpg" },
+  { id: 14, title: "Pain au Chocolat", description: "Buttery pastry with dark chocolate core.", price: "₹160", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1FwAPSsDy0TD6ozLzs8PoEBrH22bMsqo7Pw&s" },
+  { id: 15, title: "Matcha Latte", description: "Premium grade matcha with creamy milk.", price: "₹290", image: "https://stellanspice.com/wp-content/uploads/2025/07/garnished-banana-matcha-latte.jpg" },
+  { id: 16, title: "Cold Brew", description: "12-hour steeped coffee for ultimate smoothness.", price: "₹230", image: "https://www.eatingwell.com/thmb/ypZDdq0HS72jXHjFCAt5eXRtF7E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/How-to-Make-Cold-Brew-Coffee-b4af3ec355b642e78bb79e18991a0da0.jpg" },
 
-  { id: 17, title: "Almond Croissant", description: "Filled with rich almond cream and topped with flakes.", price: "$4.50", image: "https://images.unsplash.com/photo-1509365465985-25d11c17e812?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 18, title: "Red Velvet Cupcake", description: "Classic red velvet with cream cheese frosting.", price: "$3.50", image: "https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 19, title: "Affogato", description: "Vanilla gelato 'drowned' with a shot of hot espresso.", price: "$6.00", image: "https://images.unsplash.com/photo-1594631252845-29fc4586c3d7?q=80&w=400&h=400&auto=format&fit=crop" },
-  { id: 20, title: "Cheese Danish", description: "Sweet pastry with a creamy cheese filling.", price: "$4.25", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=400&h=400&auto=format&fit=crop" },
+  { id: 17, title: "Almond Croissant", description: "Filled with rich almond cream and topped with flakes.", price: "₹190", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmZsifq8h99gwu7rmz4WZ2yAAoMLTTjwCqfQ&s" },
+  { id: 18, title: "Red Velvet Cupcake", description: "Classic red velvet with cream cheese frosting.", price: "₹160", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG5d0UiuZoEb6QeUcFLno3u9UEYO-SnVNxyQ&s" },
+  { id: 19, title: "Affogato", description: "Vanilla gelato 'drowned' with a shot of hot espresso.", price: "₹280", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhNoAlZ7DhDnM-iVgeFiq6t_-O-B06E4v86A&s" },
+  { id: 20, title: "Cheese Danish", description: "Sweet pastry with a creamy cheese filling.", price: "₹170", image: "https://preppykitchen.com/wp-content/uploads/2021/11/Cheese-Danish-Recipe-Card.jpg" },
 ];
 
 export default function ExploreSection() {

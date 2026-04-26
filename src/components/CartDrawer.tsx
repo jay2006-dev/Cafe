@@ -78,7 +78,7 @@ export default function CartDrawer() {
                     </div>
                     <div className="text-right flex flex-col items-end gap-2">
                       <span className="font-bold text-coffee-950">
-                        ${(parseFloat(item.price.replace(/[^0-9.]/g, '')) * item.quantity).toFixed(2)}
+                        ₹{(parseFloat(item.price.replace(/[^0-9.]/g, '')) * item.quantity).toFixed(0)}
                       </span>
                       <button
                         onClick={() => removeFromCart(item.id)}
@@ -96,7 +96,7 @@ export default function CartDrawer() {
               <div className="p-6 border-t border-coffee-100 bg-coffee-50/50">
                 <div className="flex items-center justify-between mb-4">
                   <span className="font-medium text-coffee-800">Subtotal</span>
-                  <span className="font-bold text-xl text-coffee-950">${cartTotal.toFixed(2)}</span>
+                  <span className="font-bold text-xl text-coffee-950">₹{cartTotal.toFixed(0)}</span>
                 </div>
                 <p className="text-xs text-coffee-500 mb-6 text-center">Taxes and shipping calculated at checkout</p>
                 <button className="w-full bg-coffee-950 hover:bg-coffee-800 text-white py-4 rounded-full font-medium transition-colors">
