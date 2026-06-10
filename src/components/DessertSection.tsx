@@ -7,7 +7,8 @@ const desserts = [
   {
     id: 1,
     title: "Strawberry Chocolate Cake",
-    description: "Rich chocolate layers topped with fresh cream and strawberries.",
+    description:
+      "Rich chocolate layers topped with fresh cream and strawberries.",
     price: "₹380",
     image: "/images/dessert1.png",
   },
@@ -68,6 +69,7 @@ export default function DessertSection() {
             key={dessert.id}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            loading="eager"
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
